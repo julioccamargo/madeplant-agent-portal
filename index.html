@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madeplant Agent — Lab</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Madeplant Agent (lab)</h1>
+      <label>
+        Device
+        <select id="deviceSelect"></select>
+      </label>
+    </header>
+    <main>
+      <section class="cards">
+        <div class="card" id="focusCard">Carregando foco…</div>
+        <div class="card" id="activityCard">Carregando atividade…</div>
+      </section>
+      <section>
+        <h2>Timeline</h2>
+        <label>
+          Tipo
+          <select id="eventType">
+            <option value="">(todos)</option>
+            <option value="window.focus">window.focus</option>
+            <option value="window.focus.end">window.focus.end</option>
+            <option value="input.activity">input.activity</option>
+            <option value="agent.online">agent.online</option>
+          </select>
+        </label>
+        <table id="eventsTable">
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Tipo</th>
+              <th>Resumo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+      <section>
+        <h2>Screenshots</h2>
+        <div id="shots" class="shots"></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
