@@ -1,0 +1,15 @@
+# Entrada Dokploy (Compose Path: docker-compose.dokploy.yml)
+# Conteúdo alinhado a docker-compose.yml
+
+services:
+  portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: madeplant-agent-portal
+    restart: unless-stopped
+    environment:
+      API_UPSTREAM: ${API_UPSTREAM:-http://172.250.40.238:5080}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:?defina ADMIN_API_KEY no Dokploy}
+    ports:
+      - "${PORTAL_HOST_PORT:-3000}:80"

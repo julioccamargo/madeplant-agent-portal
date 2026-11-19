@@ -11,7 +11,7 @@ Frontend **estático** + nginx faz **proxy** de `/admin` para a Agent API e inje
 ## Opção A — Compose no Dokploy (lab atual)
 
 1. App tipo **Compose** no Git → `julioccamargo/madeplant-agent-portal`.
-2. **Compose file:** `docker-compose.yml` (raiz).
+2. **Compose file:** `docker-compose.dokploy.yml` ou `docker-compose.yml` (raiz).
 3. **Environment** no painel (mesmas vars do `.env.example`):
 
 | Variável | Lab |
