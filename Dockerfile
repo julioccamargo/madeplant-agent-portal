@@ -1,5 +1,6 @@
-# Build Vite (sem segredos — /admin via proxy nginx em runtime)
-FROM node:20-alpine AS build
+# Build Vite + React (sem segredos — /admin via proxy nginx em runtime)
+# Debian slim: Tailwind/Oxide/Rollup com binários linux-gnu (Alpine musl falha no Dokploy)
+FROM node:20-bookworm-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -7,6 +8,7 @@ COPY index.html vite.config.js ./
 COPY src ./src
 ARG VITE_API_BASE=
 ENV VITE_API_BASE=${VITE_API_BASE}
+ENV NODE_OPTIONS=--max-old-space-size=2048
 RUN npm run build
 
 FROM nginx:1.27-alpine AS final

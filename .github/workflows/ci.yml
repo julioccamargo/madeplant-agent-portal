@@ -27,3 +27,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Docker build (mesma imagem do Dokploy)
+        run: docker build -t madeplant-portal:ci .
