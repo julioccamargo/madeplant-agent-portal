@@ -196,10 +196,10 @@ function showError(err) {
   activityCard.textContent = `Erro: ${err.message}`;
 }
 
-if (!adminKey) {
+if (import.meta.env.DEV && !adminKey) {
   document.body.insertAdjacentHTML(
     "afterbegin",
-    "<p class='banner-warn'>Defina VITE_ADMIN_API_KEY em .env.local (copie de .env.example).</p>",
+    "<p class='banner-warn'>Dev: defina VITE_ADMIN_API_KEY em .env.local. Produção (Docker): use proxy nginx + ADMIN_API_KEY no container.</p>",
   );
 }
 

@@ -18,4 +18,6 @@ npm run dev
 
 Abre http://localhost:5173 (proxy `/admin` → API).
 
-No Dokploy defina `PORTAL_CORS_ORIGINS=http://localhost:5173` se chamar a API direto sem proxy.
+Dev: `PORTAL_CORS_ORIGINS=http://localhost:5173` na agent-api se usar `VITE_API_BASE` direto.
+
+**Produção Dokploy:** [docs/DOKPLOY.md](docs/DOKPLOY.md) — container nginx, porta **80**, env `API_UPSTREAM` + `ADMIN_API_KEY`.
