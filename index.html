@@ -3,80 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Madeplant — Relatórios (lab)</title>
+    <title>Madeplant — Portal</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Relatórios · Agent (lab)</h1>
-      <label>
-        Estação
-        <select id="deviceSelect"></select>
-      </label>
-      <label>
-        De
-        <input type="datetime-local" id="fromInput" />
-      </label>
-      <label>
-        Até
-        <input type="datetime-local" id="toInput" />
-      </label>
-      <div class="header-actions">
-        <button type="button" id="preset24h">24 h</button>
-        <button type="button" id="preset7d">7 dias</button>
-        <button type="button" id="refreshBtn" class="primary">Atualizar</button>
-        <button type="button" id="exportFocusCsv" title="Exportar tempo por aplicativo">CSV foco</button>
-      </div>
-    </header>
-    <main>
-      <p id="rangeHint" class="hint"></p>
-      <section class="cards">
-        <h2 class="section-title">Tempo por aplicativo</h2>
-        <div class="card card-wide">
-          <table id="focusTable">
-            <thead>
-              <tr>
-                <th>Aplicativo</th>
-                <th>Minutos</th>
-                <th>Trechos</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-          <p id="focusMeta" class="meta"></p>
+    <div id="app" class="app">
+      <aside id="sidebar" class="sidebar">
+        <div class="brand">
+          <strong>Madeplant</strong>
+          <span class="muted">Portal</span>
         </div>
-        <h2 class="section-title">Atividade (teclado / mouse)</h2>
-        <div class="card" id="activityCard">Carregando…</div>
-      </section>
-      <section>
-        <h2>Timeline</h2>
-        <label>
-          Tipo
-          <select id="eventType">
-            <option value="">(todos)</option>
-            <option value="window.focus">window.focus</option>
-            <option value="window.focus.end">window.focus.end</option>
-            <option value="input.activity">input.activity</option>
-            <option value="agent.online">agent.online</option>
-          </select>
-        </label>
-        <table id="eventsTable">
-          <thead>
-            <tr>
-              <th>Hora</th>
-              <th>Tipo</th>
-              <th>Resumo</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
-      <section>
-        <h2>Screenshots</h2>
-        <p id="shotsEmpty" class="hint" hidden>Nenhum print no período.</p>
-        <div id="shots" class="shots"></div>
-      </section>
-    </main>
+        <nav id="nav" class="nav"></nav>
+        <footer class="sidebar-footer">
+          <p id="userLabel" class="user-label"></p>
+          <label class="role-label">
+            Perfil (preview)
+            <select id="roleSelect"></select>
+          </label>
+          <button type="button" id="logoutBtn">Sair</button>
+        </footer>
+      </aside>
+      <main id="page" class="page"></main>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 # Madeplant Agent Portal (lab)
 
-Frontend lab de **relatórios**: tempo por app, atividade, timeline, screenshots e export CSV de foco.
+SPA do **portal** (repo separado do cloud): login (lab), Summary, estações, timeline, screenshots, teclado/mouse, relatórios/CSV, placeholders (jornada, categorias, monitorados, admin tenant/super admin). Rotas e RBAC: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 Requisito: pelo menos **uma estação** com agente 0.5.1+ e eventos no Postgres (nao e necessario segunda VM so para validar o portal).
 
