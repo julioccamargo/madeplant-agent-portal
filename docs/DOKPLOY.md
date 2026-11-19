@@ -8,7 +8,24 @@ Frontend **estático** + nginx faz **proxy** de `/admin` para a Agent API e inje
 - Mesma `ADMIN_API_KEY` da API.
 - Merge da branch com `Dockerfile` (ex. `main` após PR relatórios).
 
-## Opção A — Aplicação Docker no Dokploy (recomendado)
+## Opção A — Compose no Dokploy (lab atual)
+
+1. App tipo **Compose** no Git → `julioccamargo/madeplant-agent-portal`.
+2. **Compose file:** `docker-compose.yml` (raiz).
+3. **Environment** no painel (mesmas vars do `.env.example`):
+
+| Variável | Lab |
+|----------|-----|
+| `API_UPSTREAM` | `http://172.250.40.238:5080` |
+| `ADMIN_API_KEY` | igual agent-api |
+| `PORTAL_HOST_PORT` | `3000` |
+
+4. **Deploy** (webhook Compose no Dokploy ou botão Redeploy).
+5. Portal: `http://172.250.40.238:3000/`. Teste proxy: `GET .../admin/v1/devices?tenant=lab` → **200** JSON (não 404).
+
+Branch: `main` após merge do PR com `Dockerfile` + `docker-compose.yml`.
+
+## Opção B — Aplicação Dockerfile (sem compose)
 
 1. Dokploy → **Project** `madeplant-agent` (ou novo) → **Create Application** → tipo **Dockerfile**.
 2. Git: repo `julioccamargo/madeplant-agent-portal`, branch `main`.
@@ -35,7 +52,7 @@ PORTAL_CORS_ORIGINS=http://localhost:5173,http://172.250.40.238:5180
 
 Com proxy nginx do portal, o browser só fala com o mesmo host do portal — CORS na API **não** é obrigatório para `/admin`.
 
-## Opção B — Compose local (teste)
+## Opção C — Compose local (teste)
 
 ```bash
 cd madeplant-agent-portal
