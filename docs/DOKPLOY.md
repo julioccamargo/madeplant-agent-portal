@@ -18,10 +18,10 @@ Frontend **estático** + nginx faz **proxy** de `/admin` para a Agent API e inje
 |----------|-----|
 | `API_UPSTREAM` | `http://172.250.40.238:5080` |
 | `ADMIN_API_KEY` | igual agent-api |
-| `PORTAL_HOST_PORT` | `3000` |
+| `PORTAL_HOST_PORT` | ex. `3010` (evite `3000` se o painel Dokploy já usa essa porta) |
 
 4. **Deploy** (webhook Compose no Dokploy ou botão Redeploy).
-5. Portal: `http://172.250.40.238:3000/`. Teste proxy: `GET .../admin/v1/devices?tenant=lab` → **200** JSON (não 404).
+5. Portal: `http://172.250.40.238:<PORTAL_HOST_PORT>/` — título da página deve ser **Madeplant**, não Dokploy. Teste proxy: `GET .../admin/v1/devices?tenant=lab` → **200** JSON (não 404 HTML).
 
 Branch: `main` após merge do PR com `Dockerfile` + `docker-compose.yml`.
 
@@ -76,4 +76,5 @@ npm run dev
 |---------|------|
 | 503 nas chamadas | `ADMIN_API_KEY` vazia no portal ou na API |
 | 502 no `/admin` | `API_UPSTREAM` incorreto / firewall entre containers |
+| `:3000` mostra login Dokploy | Conflito de porta — altere `PORTAL_HOST_PORT` e redeploy |
 | Tela pede `VITE_ADMIN_API_KEY` | Build antigo; use imagem com proxy (sem chave no Vite) ou defina `.env.local` só em dev |
