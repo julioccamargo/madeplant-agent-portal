@@ -8,7 +8,7 @@ Repos separados: **madeplant-agent-portal** (UI) + **madeplant-agent-cloud** (AP
 flowchart LR
   Browser --> Nginx[Nginx portal]
   Nginx -->|/admin proxy + X-Admin-Key| API[Agent API]
-  Nginx -->|estatico| SPA[Vite SPA]
+  Nginx -->|estatico| SPA[Vite + React SPA]
 ```
 
 ## Perfis (RBAC — UI)

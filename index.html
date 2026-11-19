@@ -4,27 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Madeplant — Portal</title>
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="app" class="app">
-      <aside id="sidebar" class="sidebar">
-        <div class="brand">
-          <strong>Madeplant</strong>
-          <span class="muted">Portal</span>
-        </div>
-        <nav id="nav" class="nav"></nav>
-        <footer class="sidebar-footer">
-          <p id="userLabel" class="user-label"></p>
-          <label class="role-label">
-            Perfil (preview)
-            <select id="roleSelect"></select>
-          </label>
-          <button type="button" id="logoutBtn">Sair</button>
-        </footer>
-      </aside>
-      <main id="page" class="page"></main>
-    </div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 # Madeplant Agent Portal (lab)
 
-SPA do **portal** (repo separado do cloud): login (lab), Summary, estações, timeline, screenshots, teclado/mouse, relatórios/CSV, placeholders (jornada, categorias, monitorados, admin tenant/super admin). Rotas e RBAC: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Portal **React + Vite + Tailwind + Recharts** (repo separado do cloud): UI moderna tipo legado (KPIs, pizza, top apps). Telas: login, Summary, estações, timeline, screenshots, atividade, relatórios. Lab: `http://172.250.40.238:3010/`. Ver [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 Requisito: pelo menos **uma estação** com agente 0.5.1+ e eventos no Postgres (nao e necessario segunda VM so para validar o portal).
 
